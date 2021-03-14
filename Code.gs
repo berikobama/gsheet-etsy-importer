@@ -45,7 +45,8 @@ const FIELDS = HEADER.map(a => fieldMap[a]).flat().filter(a => a !== '').filter(
 
 function setup(){
   prepareSheet()
-  installTrigger();
+  installTrigger()
+  createSheet()
 }
 
 function prepareSheet(){

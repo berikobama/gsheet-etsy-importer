@@ -31,3 +31,12 @@ Fill out all placeholders while making sure all values are in quotes (" or ') an
 Close the script tab and reload the tab with the google sheet. There will be a new menu with the name "Etsy". Start the preparation of the sheet by clicking Etsy->Setup. If you do this the first time, you will be asked to grant permissions to the script. The setup will also install a trigger which runs the script hourly to update the sheet. 
 After the setup is finished the sheet will be initially filled with the current data and automatically updated every hour. To update on demand click Etsy -> Refresh output
 
+## Further steps
+You can now work with the sheet. Keep in mind that the data currently is replaced every hour. This means: Every changes you do manually in the sheet will be overriden. If you want to persist the data, import (or copy) it into a second sheet, e.g. using the importrange formula. 
+### Facebook (and instagram) shop import
+As per default the output is formated in a way, that it can directly imported into a facebook shop. As facebook has the option to import data fram a google sheet automatically every hour, a fully automated and curated facebook shop can be maintained. The shop can futhermore linked to instagram, to directly tag products in social media posts and automatically link back to etsy.
+
+-> import data via sheet to facebook shop: https://www.facebook.com/business/help/142570377032516?id=725943027795860
+-> link facebook shop with instagram: https://www.facebook.com/business/help/1108695469241257
+### Customizing the export
+tbd.
