@@ -2,7 +2,7 @@ const BASEURL = "http://openapi.etsy.com/v2"
 const API_KEY = "<<your personal api key here>>"
 
 const limit = 100
-const language = "de"
+const language = "<<language>>"
 const shopId = "<<your shop id here>>"
 const shopName = "<<your shop name here>>"
 
