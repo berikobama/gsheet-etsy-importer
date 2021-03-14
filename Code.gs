@@ -43,11 +43,27 @@ const HEADER = Object.keys(fieldMap)
 
 const FIELDS = HEADER.map(a => fieldMap[a]).flat().filter(a => a !== '').filter(el => additionalIncludes.indexOf(el) < 0);
 
+function setup(){
+  prepareSheet()
+  installTrigger();
+}
 
+function prepareSheet(){
+  var spreadsheet = SpreadsheetApp.getActiveSpreadsheet();
+  var sheets = spreadsheet.getSheets();
+  spreadsheet.insertSheet().setName("output").appendRow(HEADER)
+  sheets.forEach(a=>spreadsheet.deleteSheet(a));
+}
+
+function installTrigger(){
+  var triggers = ScriptApp.getScriptTriggers()
+  triggers.forEach(a => ScriptApp.deleteTrigger(a))
+  ScriptApp.newTrigger("createSheet").timeBased().everyHours(1).create();
+}
 
 function onOpen() {
   var ui = SpreadsheetApp.getUi()
-  ui.createMenu("Etsy").addItem("Refresh output", "createSheet").addToUi();
+  ui.createMenu("Etsy").addItem("Refresh output", "createSheet").addItem("Setup", "setup").addToUi();
 }
 
 function downloadListingsForShop(shop_id, fields, api_key) {
@@ -77,7 +93,7 @@ function createSheet() {
   for (var l in listings) {
     var listing = listings[l]
     var row = []
-    
+
     HEADER.forEach(i => row.push(listing[fieldMap[i]]))
 
     for (var i in manipulations) {
