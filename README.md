@@ -12,7 +12,7 @@ What should you prepare?
 
 ### Now to the setup itself:
 #### Step one: create a google sheet
-Log into your google account and visit sheets.new, as this will create an empty google sheet. 
+Log into your google account and visit sheets.new, as this will create an empty google sheet. Give it whatever name you want.
 #### Step two: Install the script
 Open the script editor ( Tools -> Script Editor ) and paste in ALL the contents of the Code.gs file.
 We now need to configure a few settings:
@@ -21,8 +21,13 @@ const BASEURL = "http://openapi.etsy.com/v2"
 const API_KEY = "<<your personal api key here>>"
 
 const limit = 100
-const language = "de"
+const language = "<<language code for your shop>>"
 const shopId = "<<your shop id here>>"
 const shopName = "<<your shop name here>>"
 
 ```
+Fill out all placeholders while making sure all values are in quotes (" or ') and there are no blank characters. Language is represented as ISO-639-1 code (https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes, e.g.: english=en or german=de).
+#### Step three: Setup the rest and first import
+Close the script tab and reload the tab with the google sheet. There will be a new menu with the name "Etsy". Start the preparation of the sheet by clicking Etsy->Setup. If you do this the first time, you will be asked to grant permissions to the script. The setup will also install a trigger which runs the script hourly to update the sheet. 
+After the setup is finished the sheet will be initially filled with the current data and automatically updated every hour. To update on demand click Etsy -> Refresh output
+
